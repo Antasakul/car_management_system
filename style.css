@@ -1,0 +1,539 @@
+/* style.css - Футуристический дизайн с таблицей */
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #9b6cc9 100%);
+    --dark-bg: #0f1419;
+    --card-bg: rgba(255, 255, 255, 0.08);
+    --card-border: rgba(255, 255, 255, 0.12);
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --accent-green: #00d4aa;
+    --accent-orange: #ff6b35;
+    --accent-yelloy: #eb9b23;
+    --table-header-bg: rgba(255, 255, 255, 0.1);
+    --table-hover-bg: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--dark-bg);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
+.cyber-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Хедер */
+.cyber-header {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cyber-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--primary-gradient);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cyber-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Кнопка добавить автомобиль - уменьшенная */
+.header-content .btn-cyber {
+    background: var(--primary-gradient);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.header-content .btn-cyber:hover {
+    transform: translateY(-2px);
+}
+
+/* Таблица */
+.cyber-table-container {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.cyber-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: transparent;
+}
+
+.cyber-table th {
+    background: var(--table-header-bg);
+    padding: 20px 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    border-bottom: 2px solid var(--card-border);
+}
+
+.cyber-table td {
+    padding: 18px 15px;
+    border-bottom: 1px solid var(--card-border);
+    transition: all 0.3s ease;
+}
+
+.cyber-table tbody tr:hover td {
+    background: var(--table-hover-bg);
+    transform: translateX(5px);
+}
+
+.cyber-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Стили для ячеек таблицы */
+.license-plate-cell {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+        background-attachment: fixed; /* Фиксируем градиент */
+
+}
+
+/* Отключаем изменение при наведении */
+.cyber-table tbody tr:hover .license-plate-cell {
+    background: var(--primary-gradient); /* Сохраняем градиент */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform: none; /* Отключаем смещение */
+}
+.model-cell {
+    font-weight: 600;
+}
+
+.year-cell {
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.description-cell {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+   
+}
+
+
+.status-cell {
+    text-align: center;
+}
+
+.date-cell {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.actions-cell {
+    text-align: center;
+    min-width: 120px;
+}
+
+/* Кнопки действий в таблице - ВЕРТИКАЛЬНО */
+.table-actions-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+
+.btn-table {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.btn-edit {
+    background:  rgba(163, 104, 32, 0.3);
+     border: 1px solid rgba(163, 104, 32, 0.3);
+    color: var(--accent-yelloy);
+}
+
+.btn-status {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border: 1px solid var(--card-border);
+}
+
+.btn-delete {
+    background: rgba(255, 107, 53, 0.2);
+    color: var(--accent-orange);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+}
+.btn-status.status-available {
+    background: rgba(0, 212, 170, 0.2);
+    color: #00d4aa;
+    border-color: rgba(0, 212, 170, 0.3);
+}
+
+.btn-status.status-not-available {
+    background: rgba(255, 107, 53, 0.2);
+    color: #ff6b35;
+    border-color: rgba(255, 107, 53, 0.3);
+}
+
+.btn-status:hover {
+    transform: translateY(-2px);
+}
+
+.btn-status.status-available:hover {
+    background: rgba(0, 212, 170, 0.3);
+}
+
+.btn-status.status-not-available:hover {
+    background: rgba(129, 52, 24, 0.3);
+}
+/* Сообщение о пустой таблице */
+.empty-table-message {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-secondary);
+}
+
+.empty-table-message h3 {
+    margin-bottom: 15px;
+}
+
+.empty-table-message p {
+    margin-bottom: 25px;
+}
+
+/* Статистика */
+.stats-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+}
+
+.stats-container h4 {
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+.status-chip {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border: 1px solid;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+
+.status-completed {
+    background: rgba(0, 212, 170, 0.2);
+    color: #00d4aa;
+    border-color: rgba(0, 212, 170, 0.3);
+}
+
+.status-pending {
+    background: rgba(255, 107, 53, 0.2);
+    color: #ff6b35;
+    border-color: rgba(255, 107, 53, 0.3);
+}
+
+
+/* Анимации */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cyber-fade-in {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+    .cyber-table-container {
+        overflow-x: auto;
+    }
+    
+    .cyber-table {
+        min-width: 1000px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .cyber-title {
+        font-size: 2rem;
+    }
+    
+    .table-actions-vertical {
+        gap: 5px;
+    }
+    
+    .btn-table {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+}
+
+/* Стили для страниц редактирования/добавления */
+.form-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--primary-gradient);
+}
+
+.form-container .header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-container h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+}
+
+.form-container .text-muted {
+    color: var(--text-secondary) !important;
+    font-size: 1.1rem;
+}
+
+/* Стили для формы */
+.form-label {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.required-field::after {
+    content: " *";
+    color: #ff6b35;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    color: var(--text-primary);
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #667eea;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+    color: var(--text-primary);
+}
+
+.form-control::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.form-text {
+    color: var(--text-secondary) !important;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+/* Стили для кнопок */
+.btn {
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-success {
+    background: var(--primary-gradient);
+    color: white;
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    color: white;
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border: 1px solid var(--card-border);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    color: var(--text-primary);
+}
+
+/* Стили для алертов ошибок */
+.alert-danger {
+    background: rgba(255, 107, 53, 0.15);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    border-radius: 10px;
+    color: #ff6b35;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.alert-danger h5 {
+    color: #ff6b35;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.alert-danger ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.alert-danger li {
+    margin-bottom: 5px;
+}
+
+/* Анимация появления */
+.fade-in {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .form-container {
+        margin: 20px;
+        padding: 20px;
+    }
+    
+    .form-container h1 {
+        font-size: 1.8rem;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    
+    .col-12 .btn {
+        width: auto;
+    }
+    
+    @media (max-width: 576px) {
+        .col-12 .btn {
+            width: 100%;
+        }
+    }
+}
+
