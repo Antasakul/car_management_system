@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $license_plate = trim($_POST['license_plate'] ?? '');
     $year = trim($_POST['year'] ?? '');
 
+ 
     if ($title === '') {
         $errors[] = "Поле 'Название' обязательно.";
     }
